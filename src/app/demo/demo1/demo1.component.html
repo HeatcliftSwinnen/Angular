@@ -1,1 +1,30 @@
-<p>demo1 works!</p>
+<h2>Les Bindings</h2>
+
+<div class="chapter">
+    <h3>Property Binding</h3>
+    <div>
+        <h4>One-Way Binding</h4>
+        <p>Bonjour et bienvenue {{ firstname }} {{ lastname }}</p>
+    </div>
+    <div>
+        <h4>Two-Way Binding</h4>
+        <input type="text" [(ngModel)]="lastname" >
+    </div>
+</div>
+
+<div class="chapter">
+    <h3>Event Binding</h3>
+    <button (click)="direBonjour('fr')">Dire bonjour en français</button>
+    <button (click)="direBonjour('nl')">Dire bonjour en néerlandais</button>
+    <button (click)="direBonjour('de')">Dire bonjour en allemand</button>
+    <p> {{ message }} </p>
+    
+</div>
+
+<div class="chapter">
+    <h3>Attribute Binding</h3>
+    <img [src]="monUrlImg" alt="quoicoubeh">
+    <button (click)="toggleIsActive()">Activer/Désactiver</button>
+    <button [disabled]="isActive">Click Me</button>
+    <input type="text" [placeholder]="monPlaceholder">
+</div>
