@@ -9,11 +9,15 @@ ul {
     padding: 0;
 }
 
+main {
+    width: 80vw;
+    min-height: 100vh;
+}
+
 .flex-row {
     display: flex;
 }
 
-main {
-    width: 85vw;
-    min-height: 100vh;
+.content {
+    padding: 0.5rem 2rem;
 }

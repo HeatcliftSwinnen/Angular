@@ -1,5 +1,5 @@
 header {
-    width: 15vw;
+    width: 20vw;
     min-height: 100vh;
     background-color: lightslategray;
 }
@@ -28,4 +28,8 @@ a:hover {
 a:active {
     color : pink;
     border-color: rgb(160, 188, 217);
+}
+
+ul ul {
+    margin-left: 1rem;
 }
