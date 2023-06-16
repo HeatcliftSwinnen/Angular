@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFrBe from '@angular/common/locales/fr-BE';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+
+registerLocaleData(localeFrBe);
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { HomeComponent } from './components/home/home.component';
   ],
   providers: [
     // Informations sur l'injection de dépendances des services, interceptor etc
+    { provide : LOCALE_ID, useValue : "fr-BE"}
   ],
   bootstrap: [AppComponent]
 })
