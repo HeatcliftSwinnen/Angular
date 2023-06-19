@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { RappelsComponent } from './components/rappels/rappels.component';
 
 registerLocaleData(localeFrBe);
 
@@ -14,7 +15,8 @@ registerLocaleData(localeFrBe);
     // Toutes les déclarations de composants, de pipes, etc (ils ne peuvent être déclarés que dans un seul module)
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    RappelsComponent
   ],
   imports: [
     // Import des modules dont on va avoir besoin
