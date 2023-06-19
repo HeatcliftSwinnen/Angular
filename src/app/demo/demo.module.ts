@@ -6,18 +6,21 @@ import { DemoComponent } from './demo.component';
 import { Demo1Component } from './demo1/demo1.component';
 import { FormsModule } from '@angular/forms';
 import { Demo2Component } from './demo2/demo2.component';
+import { ToFarenheitPipe } from '../shared/pipes/to-farenheit.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     DemoComponent,
     Demo1Component,
-    Demo2Component
+    Demo2Component,
   ],
   imports: [
     CommonModule,
     DemoRoutingModule,
     FormsModule, //Vous permet d'utiliser ngModel pour le Two Way Binding
+    SharedModule, //Nous permet d'accéder à toutes les fonctionnalités exportées dans le module partagé
   ],
   bootstrap : [DemoComponent]
 })

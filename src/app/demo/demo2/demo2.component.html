@@ -27,4 +27,9 @@
 
 <div class="chapter">
     <h3>Les custom pipes</h3>
+    <p>Température en °C : {{ temperature }} </p>
+    <p>Température en °F : {{ temperature | toFarenheit }}</p>
+    <p> 18°C -> {{ 18 | convertTemp : "cToFarenheit" }}°F</p>
+    <p> 64°F -> {{ 64 | convertTemp : "fToCelcius" | number : "1.0-1" }}°C</p>
+    <!-- Vous pouvez enchainer les pipes tant que vous respectez les types -->
 </div>

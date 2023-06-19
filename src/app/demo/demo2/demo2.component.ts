@@ -11,4 +11,6 @@ export class Demo2Component {
     monNombre : number = 42.5484885687;
     
     dateDuJour : Date = new Date();
+
+    temperature : number = 18;
 }

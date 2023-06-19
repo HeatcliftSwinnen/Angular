@@ -36,6 +36,17 @@
     ```
         ng g c (path)nomComponent
     ```
+
+## Créer un pipe 
+- Version longue
+    ```
+        ng generate pipe (path)nomPipe
+    ```
+- Version flemme
+    ```
+        ng g p (path)nomPipe
+    ```
+
 <br>
 <hr>
 <br>
