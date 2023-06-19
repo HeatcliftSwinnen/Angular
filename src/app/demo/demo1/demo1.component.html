@@ -14,17 +14,21 @@
 
 <div class="chapter">
     <h3>Event Binding</h3>
-    <button (click)="direBonjour('fr')">Dire bonjour en français</button>
-    <button (click)="direBonjour('nl')">Dire bonjour en néerlandais</button>
-    <button (click)="direBonjour('de')">Dire bonjour en allemand</button>
+    <button class="btn" (click)="direBonjour('fr')">Dire bonjour en français</button>
+    <button class="btn" (click)="direBonjour('nl')">Dire bonjour en néerlandais</button>
+    <button class="btn" (click)="direBonjour('de')">Dire bonjour en allemand</button>
     <p> {{ message }} </p>
     
 </div>
 
 <div class="chapter">
     <h3>Attribute Binding</h3>
-    <img [src]="monUrlImg" alt="quoicoubeh">
-    <button (click)="toggleIsActive()">Activer/Désactiver</button>
-    <button [disabled]="isActive">Click Me</button>
-    <input type="text" [placeholder]="monPlaceholder">
+    <div class="flex-row">
+        <img [src]="monUrlImg" alt="quoicoubeh">
+        <div>
+            <button class="btn" (click)="toggleIsActive()">Activer/Désactiver</button>
+            <button class="btn" [disabled]="isActive">Click Me</button>
+            <input type="text" [placeholder]="monPlaceholder">
+        </div>
+    </div>
 </div>
