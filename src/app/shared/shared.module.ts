@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ToFarenheitPipe } from './pipes/to-farenheit.pipe';
 import { ConvertTempPipe } from './pipes/convert-temp.pipe';
 import { ConvertTimePipe } from './pipes/convert-time.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
 
 // Module partagé qui va nous servir à déclarer des fonctionnalités qu'on voudra rendre disponibles pour toute l'app grâce à l'export
 
@@ -10,7 +11,8 @@ import { ConvertTimePipe } from './pipes/convert-time.pipe';
   declarations: [
     ToFarenheitPipe,
     ConvertTempPipe,
-    ConvertTimePipe
+    ConvertTimePipe,
+    HighlightDirective
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { ConvertTimePipe } from './pipes/convert-time.pipe';
   exports : [
     ToFarenheitPipe,
     ConvertTempPipe,
-    ConvertTimePipe
+    ConvertTimePipe,
+    HighlightDirective
   ]
 })
 export class SharedModule { }

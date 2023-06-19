@@ -39,6 +39,7 @@ main {
     font-size: medium;
     margin : 0 0.5rem;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover {
         color : lightslategray;
@@ -49,6 +50,7 @@ main {
         background-color: rgb(192, 202, 212);
         color : lightslategray;
         border: 1px solid lightslategray;
+        cursor: auto;
 
     }
     &:not(:disabled) {    

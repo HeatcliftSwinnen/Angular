@@ -47,6 +47,16 @@
         ng g p (path)nomPipe
     ```
 
+## Créer une directive
+- Version longue
+    ```
+        ng generate directive (path)nomDirective
+    ```
+- Version flemme
+    ```
+        ng g d (path)nomDirective
+    ```
+
 <br>
 <hr>
 <br>
