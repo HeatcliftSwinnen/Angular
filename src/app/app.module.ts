@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { RappelsComponent } from './components/rappels/rappels.component';
 import { ToFarenheitPipe } from './shared/pipes/to-farenheit.pipe';
+import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 
 registerLocaleData(localeFrBe);
 

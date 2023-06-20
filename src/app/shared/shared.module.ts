@@ -4,6 +4,7 @@ import { ToFarenheitPipe } from './pipes/to-farenheit.pipe';
 import { ConvertTempPipe } from './pipes/convert-temp.pipe';
 import { ConvertTimePipe } from './pipes/convert-time.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
+import { TrainerCardComponent } from '../components/trainer-card/trainer-card.component';
 
 // Module partagé qui va nous servir à déclarer des fonctionnalités qu'on voudra rendre disponibles pour toute l'app grâce à l'export
 
@@ -12,7 +13,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     ToFarenheitPipe,
     ConvertTempPipe,
     ConvertTimePipe,
-    HighlightDirective
+    HighlightDirective,
+    TrainerCardComponent
   ],
   imports: [
     CommonModule
@@ -21,7 +23,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     ToFarenheitPipe,
     ConvertTempPipe,
     ConvertTimePipe,
-    HighlightDirective
+    HighlightDirective,
+    TrainerCardComponent
   ]
 })
 export class SharedModule { }
