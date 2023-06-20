@@ -5,6 +5,7 @@ import { ConvertTempPipe } from './pipes/convert-temp.pipe';
 import { ConvertTimePipe } from './pipes/convert-time.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { TrainerCardComponent } from '../components/trainer-card/trainer-card.component';
+import { FormsModule } from '@angular/forms';
 
 // Module partagé qui va nous servir à déclarer des fonctionnalités qu'on voudra rendre disponibles pour toute l'app grâce à l'export
 
@@ -17,14 +18,17 @@ import { TrainerCardComponent } from '../components/trainer-card/trainer-card.co
     TrainerCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule, //Vous permet d'utiliser ngModel pour le Two Way Binding
+
   ],
   exports : [
     ToFarenheitPipe,
     ConvertTempPipe,
     ConvertTimePipe,
     HighlightDirective,
-    TrainerCardComponent
+    TrainerCardComponent,
+    FormsModule
   ]
 })
 export class SharedModule { }
