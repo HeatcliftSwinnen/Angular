@@ -9,6 +9,8 @@ import { Demo2Component } from './demo2/demo2.component';
 import { ToFarenheitPipe } from '../shared/pipes/to-farenheit.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { Demo3Component } from './demo3/demo3.component';
+import { Demo4Component } from './demo4/demo4.component';
+import { Demo4enfantComponent } from './demo4/demo4enfant/demo4enfant.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { Demo3Component } from './demo3/demo3.component';
     Demo1Component,
     Demo2Component,
     Demo3Component,
+    Demo4Component,
+    Demo4enfantComponent,
   ],
   imports: [
     CommonModule,

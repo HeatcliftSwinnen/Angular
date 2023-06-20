@@ -1,0 +1,11 @@
+<h2>Input & Output - Dialogue entre composants</h2>
+<div class="chapter">
+    <div class="parent">
+        <p>Bonjour, je suis le parent</p>
+        <p>Mon enfant a besoin de {{childNeed}}</p>
+        <app-demo4enfant [parentFirstname]="firstname" [parentHobbies]="hobbies" (sendNeed)="receiveNeed($event)">
+            <p>Pouet pouet</p>
+            <p>Pouet²</p>
+        </app-demo4enfant>
+    </div>
+</div>
