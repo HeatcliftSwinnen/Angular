@@ -57,6 +57,16 @@
         ng g d (path)nomDirective
     ```
 
+## Créer un service
+- Version longue
+    ```
+        ng generate service (path)nomService
+    ```
+- Version flemme
+    ```
+        ng g s (path)nomService
+    ```
+
 <br>
 <hr>
 <br>
