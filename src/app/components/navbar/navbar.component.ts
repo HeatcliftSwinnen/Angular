@@ -18,7 +18,8 @@ export class NavbarComponent {
     ], isVisible : false },
     { title : 'Exos', /* url : '/exo',*/ children : [
       { title : 'Exo 1 - Le Chrono', url : '/exo/exo1'},
-      { title : 'Exo 2 - Shopping List V1', url : '/exo/exo2'}
+      { title : 'Exo 2 - Shopping List V1', url : '/exo/exo2'},
+      { title : 'Exo 3 - Shopping List V2', url : '/exo/exo3'}
     ], isVisible : false },
     { title : 'Rappels', url : '/rappels', isVisible : false }
   ]
