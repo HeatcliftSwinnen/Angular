@@ -10,6 +10,7 @@ import { Demo3Component } from './demo3/demo3.component';
 import { Demo4Component } from './demo4/demo4.component';
 import { Demo4enfantComponent } from './demo4/demo4enfant/demo4enfant.component';
 import { Demo5Component } from './demo5/demo5.component';
+import { Demo6Component } from './demo6/demo6.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { Demo5Component } from './demo5/demo5.component';
     Demo4Component,
     Demo4enfantComponent,
     Demo5Component,
+    Demo6Component,
   ],
   imports: [
     CommonModule,

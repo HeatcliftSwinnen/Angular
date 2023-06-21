@@ -14,7 +14,9 @@ export class NavbarComponent {
       { title : 'Demo 2 - Les Pipes', url : '/demo/demo2'},
       { title : 'Demo 3 - Les Directives', url : '/demo/demo3'},
       { title : 'Demo 4 - Input & Output', url : '/demo/demo4'},
-      { title : 'Demo 5 - Services', url : '/demo/demo5'}
+      { title : 'Demo 5 - Services', url : '/demo/demo5'},
+      { title : 'Demo 6 - Les Formulaires', url : '/demo/demo6'}
+
     ], isVisible : false },
     { title : 'Exos', /* url : '/exo',*/ children : [
       { title : 'Exo 1 - Le Chrono', url : '/exo/exo1'},

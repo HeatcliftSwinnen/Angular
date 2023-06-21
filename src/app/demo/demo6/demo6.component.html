@@ -1,0 +1,42 @@
+<h2>Les formulaires</h2>
+<div class="chapter">
+    <h3>Ajouter un contact :</h3>
+    <form [formGroup]="contactForm" (submit)="addContact()">
+        <div>
+            <input type="text" placeholder="Nom" formControlName="lastname" >
+        </div>
+        <div>
+            <input type="text" placeholder="Prénom" formControlName="firstname">
+        </div>
+        <div>
+            <input type="date" formControlName="birthdate" >
+        </div>
+        <div>
+            <input type="email" placeholder="Email" formControlName="email"> 
+        </div>
+        <div>
+            <input type="number" placeholder="Taille (cm)" formControlName="height">
+        </div>
+        <div>
+            <input id="couple" type="checkbox" formControlName="couple"> 
+            <label for="couple">En couple</label>
+        </div>
+        <div>
+            <input type="radio" id="h" formControlName="gender" value="male"><label for="h">Homme</label>
+            <input type="radio" id="f" formControlName="gender" value="female"><label for="f">Femme</label>
+            <input type="radio" id="a" formControlName="gender" value="other"><label for="a">Autre</label>
+        </div>
+        <div>
+            <select formControlName="type">
+                <option value="" hidden>Choisissez le type de contact</option>
+                <option value="friend">Ami</option>
+                <option value="coworker">Collègue</option>
+                <option value="family">Famille</option>
+                <option value="other">Autre</option>
+            </select>
+        </div>
+        <div>
+            <input class="btn" type="submit" value="Ajouter contact">
+        </div>
+    </form>
+</div>
