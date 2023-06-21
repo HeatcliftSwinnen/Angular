@@ -5,5 +5,5 @@
         <button (click)="addProduct()" class="btn">Ajouter</button>
     </div>
 
-    <app-exo2enfant [listToShow]="productList" (deleteEvent)="deleteProduct($event)"></app-exo2enfant>
+    <app-exo2enfant [listToShow]="productList" (deleteEvent)="deleteProduct($event)" (downEvent)="downQtyProduct($event)" (upEvent)="upQtyProduct($event)"></app-exo2enfant>
 </div>

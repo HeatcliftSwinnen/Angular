@@ -12,8 +12,8 @@
             <td>{{item.name}}</td>
             <td>{{item.quantity}}</td>
             <td>
-                <button class="btn">➖</button>
-                <button class="btn">➕</button>
+                <button (click)="sendDownEvent(item.id)" class="btn">➖</button>
+                <button (click)="sendUpEvent(item.id)" class="btn">➕</button>
                 <button (click)="sendDeleteEvent(item.id)" class="btn">❌</button>
             </td>
         </tr>

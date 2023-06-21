@@ -47,4 +47,21 @@ export class Exo2Component {
     // this.productList.splice(this.productList.findIndex(p => p.id == id), 1);
     this.productList = this.productList.filter(p => p.id !== id)  
   }
+
+  downQtyProduct(id : number) : void {
+    let product = this.productList.find(p => p.id === id);
+    if(product) {
+      product.quantity--;
+      if(product.quantity === 0) {
+        this.deleteProduct(id);
+      }
+    }
+  }
+
+  upQtyProduct(id : number) : void {
+    let product = this.productList.find(p => p.id === id);
+    if(product) {
+      product.quantity++;
+    }
+  }
 }
