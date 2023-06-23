@@ -11,6 +11,8 @@ import { Demo4Component } from './demo4/demo4.component';
 import { Demo4enfantComponent } from './demo4/demo4enfant/demo4enfant.component';
 import { Demo5Component } from './demo5/demo5.component';
 import { Demo6Component } from './demo6/demo6.component';
+import { Demo7Component } from './demo7/demo7.component';
+import { CreateTrackComponent } from './demo7/create-track/create-track.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { Demo6Component } from './demo6/demo6.component';
     Demo4enfantComponent,
     Demo5Component,
     Demo6Component,
+    Demo7Component,
+    CreateTrackComponent,
   ],
   imports: [
     CommonModule,

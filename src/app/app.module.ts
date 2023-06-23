@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RappelsComponent } from './components/rappels/rappels.component';
 import { ToFarenheitPipe } from './shared/pipes/to-farenheit.pipe';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 registerLocaleData(localeFrBe);
 
@@ -19,6 +20,7 @@ registerLocaleData(localeFrBe);
     NavbarComponent,
     HomeComponent,
     RappelsComponent,
+    NotfoundComponent,
   ],
   imports: [
     // Import des modules dont on va avoir besoin
