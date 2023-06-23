@@ -4,18 +4,31 @@
     <form [formGroup]="contactForm" (submit)="addContact()">
         <div>
             <input type="text" placeholder="Nom" formControlName="lastname" >
+
+            <span class="error" *ngIf="contactForm.get('lastname')?.touched && contactForm.get('lastname')?.errors?.['required']">Ce champs est requis</span>
+
+            <span class="error" *ngIf="contactForm.get('lastname')?.errors?.['minlength'] || contactForm.get('lastname')?.errors?.['maxlength']">Le nom doit faire entre 2 et 100 caractères</span>
         </div>
         <div>
             <input type="text" placeholder="Prénom" formControlName="firstname">
+
+            <span class="error" *ngIf="contactForm.get('firstname')?.touched && contactForm.get('firstname')?.errors?.['required']">Ce champs est requis</span>
+            
+            <span class="error" *ngIf="contactForm.get('firstname')?.errors?.['minlength'] || contactForm.get('firstname')?.errors?.['maxlength']">Le nom doit faire entre 2 et 100 caractères</span>
         </div>
         <div>
             <input type="date" formControlName="birthdate" >
+            <span class="error" *ngIf="contactForm.get('birthdate')?.touched && contactForm.get('birthdate')?.errors?.['required']">Ce champs est requis</span>
         </div>
         <div>
             <input type="email" placeholder="Email" formControlName="email"> 
+            <span class="error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']">Ce champs est requis</span>
+            <span class="error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.dirty && contactForm.get('email')?.errors?.['email']">Vous n'avez pas entré un email valide</span>
         </div>
         <div>
             <input type="number" placeholder="Taille (cm)" formControlName="height">
+
+            <span class="error" *ngIf="contactForm.get('height')?.errors?.['min'] || contactForm.get('height')?.errors?.['max']">La taille doit être comprise entre 50cm et 230cm</span>
         </div>
         <div>
             <input id="couple" type="checkbox" formControlName="couple"> 
@@ -34,6 +47,7 @@
                 <option value="family">Famille</option>
                 <option value="other">Autre</option>
             </select>
+            <span class="error" *ngIf="contactForm.get('type')?.touched && contactForm.get('type')?.errors?.['required']">Ce champs est requis</span>
         </div>
         <div>
             <input class="btn" type="submit" value="Ajouter contact">

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-demo6',
@@ -11,19 +11,27 @@ export class Demo6Component {
 
   constructor(private _fb : FormBuilder) {
     this.contactForm = this._fb.group({
-      lastname : [null, []],
-      firstname : [null],
-      birthdate : [null],
-      email : [null],
-      height : [null],
+      //nomControl : [valeur, [Validateurs synchrones] , [Validateurs asynchrones]]
+      lastname : [null, [ Validators.required, Validators.minLength(2), Validators.maxLength(100) ]],
+      firstname : [null, [ Validators.required, Validators.minLength(2), Validators.maxLength(100) ]],
+      birthdate : [null, [ Validators.required ]],
+      email : [null, [Validators.required, Validators.email]],
+      height : [null, [Validators.min(50), Validators.max(230)]],
       couple : [false],
-      gender : ['male'],
-      type : ['']
+      gender : ['male', [Validators.required]],
+      type : ['', [Validators.required]],
+      //password : [null, [Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]]
     })
   }
 
   addContact() {
-    console.log(this.contactForm.value);
-    
+    if(this.contactForm.valid) {
+      console.log(this.contactForm.value);
+    } else {
+      console.log("PAS VALIDE !!");
+      //Tous les controls vont être touched
+      //Du coup toutes nos erreurs requis vont apparaitre
+      this.contactForm.markAllAsTouched();
+    }    
   }
 }
