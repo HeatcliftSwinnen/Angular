@@ -49,6 +49,27 @@
             </select>
             <span class="error" *ngIf="contactForm.get('type')?.touched && contactForm.get('type')?.errors?.['required']">Ce champs est requis</span>
         </div>
+
+        <div>
+            <input type="text" placeholder="Pays" formControlName="country">
+            <span class="error" *ngIf="contactForm.get('country')?.touched && contactForm.get('country')?.errors?.['required']">Ce champs est requis</span>
+            <span class="error" *ngIf="contactForm.get('country')?.touched && contactForm.get('country')?.dirty && contactForm.get('country')?.errors?.['invalidcountry']" >Vous devrez entrer l'un de ces pays : Belgique, Allemagne, France</span>
+        </div>
+
+        <div formArrayName="hobbies">
+            <h4>Les hobbies de {{ contactForm.get('firstname')?.value ?? 'mon contact' }} :</h4>
+            
+            <input type="button" class="btn mb-1" (click)="addHobby()" value="Ajouter un hobby">
+            
+            <div *ngFor="let hobby of hobbies.controls; let i = index">
+                <label [for]=" 'hobby'+i ">Hobby N°{{i+1}}</label>
+                <input [id]=" 'hobby'+i " type="text" [formControlName]="i">
+                <span class="remove-hobby" (click)="removeHobby(i)">✖</span>
+                <span class="error" *ngIf=" hobbies.controls[i].touched && hobbies.controls[i].errors?.['required']">Veuillez remplir le hobby</span>
+            </div>
+            
+        </div>
+
         <div>
             <input class="btn" type="submit" value="Ajouter contact">
         </div>
