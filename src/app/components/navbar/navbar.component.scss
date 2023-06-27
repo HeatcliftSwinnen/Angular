@@ -32,6 +32,13 @@ a:active {
 
 ul ul {
     margin-left: 1rem;
+    li {
+        margin-bottom: 0.75rem;
+        line-height: 1.5rem;
+    }
+    a:hover {
+        padding-bottom: 0.25rem;
+    }
 }
 
 .isActive {
