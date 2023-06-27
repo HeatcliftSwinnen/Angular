@@ -1,0 +1,23 @@
+<h2>Exercice de gestion de fans de séries</h2>
+<div class="chapter">
+    <a class="btn" routerLink="/exo/exo5/create-fan">Ajouter un nouveau fan</a>
+    <h3>Liste des fans</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fan of listFan">
+                <td>{{fan.name}}</td>
+                <td>
+                    <a class="btn" routerLink="/exo/exo5/detail-fan/{{fan.id}}">🔍</a>
+                    <a class="btn" routerLink="/exo/exo5/update-fan/{{fan.id}}">📝</a>
+                    <button (click)="delete(fan.id)" class="btn">❌</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>  

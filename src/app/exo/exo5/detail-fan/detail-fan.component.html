@@ -1,0 +1,24 @@
+<h2>Les détails de {{fan?.name}}</h2>
+<div class="chapter">
+    <div>
+        <a routerLink="/exo/exo5">Revenir à la liste des fans</a>
+    </div>
+    <div>
+        <p>
+            <span>Date de Naissance : </span>
+            <span>{{fan?.birthdate | date : 'dd/MM/yyyy'}}</span>
+        </p>
+    </div>
+    <div>
+        <h3>Ses séries préférées :</h3>
+        <ul>
+            <li *ngFor="let serie of fan?.series">
+                {{serie}}
+            </li>
+        </ul>
+    </div>
+    <div>
+        <a class="btn" routerLink="/exo/exo5/update-fan/{{fanId}}">Modifier 📝</a>
+        <button class="btn">Supprimer ❌</button>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<h2>Ajouter un nouveau fan :</h2>
+<div class="chapter">
+    <div class="mb-2">
+        <a routerLink="/exo/exo5">Revenir à la liste des fans</a>
+    </div>
+
+    <form [formGroup]="fanForm" (submit)="addFan()">
+        <div>
+            <input type="text" placeholder="Nom du fan" formControlName="name">
+            <span *ngIf="fanForm.get('name')?.touched && fanForm.get('name')?.errors?.['required']"  class="error">Ce champs est requis</span>
+        </div>
+        <div>
+            <input type="date" formControlName="birthdate">
+            <span *ngIf="fanForm.get('birthdate')?.touched && fanForm.get('birthdate')?.errors?.['required']" class="error">Ce champs est requis</span>
+            <span *ngIf="fanForm.get('birthdate')?.errors?.['peggi']" class="error">Vous devez avoir plus de 13 ans 👶</span>
+        </div>
+        <div formArrayName="series" >
+            <h4>Ajouter des séries :</h4>
+
+            <input (click)="addSerie()" type="button" class="btn mb-1" value="Ajouter une série">
+
+            <div *ngFor="let serie of series.controls; let i = index">
+                <input type="text" placeholder="Série N°{{i+1}}" [formControlName]="i">
+                <span *ngIf="series.controls[i].touched && series.controls[i]?.errors?.['required']" class="error">Ce champs est requis</span>
+                <span (click)="removeSerie(i)">✖</span>
+            </div>
+
+        </div>
+
+        <div>
+            <input class="btn" type="submit" value="Ajouter le fan" >
+        </div>
+    </form>
+</div>

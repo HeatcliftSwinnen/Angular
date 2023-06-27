@@ -23,7 +23,8 @@ export class NavbarComponent {
       { title : 'Exo 1 - Le Chrono', url : '/exo/exo1'},
       { title : 'Exo 2 - Shopping List V1', url : '/exo/exo2'},
       { title : 'Exo 3 - Shopping List V2', url : '/exo/exo3'},
-      { title : 'Exo 4 - P\'tit formulaire', url : '/exo/exo4'}
+      { title : 'Exo 4 - P\'tit formulaire', url : '/exo/exo4'},
+      { title : 'Exo 5 - Crud Fan Séries', url : '/exo/exo5'}
     ], isVisible : false },
     { title : 'Rappels', url : '/rappels', isVisible : false }
   ]
