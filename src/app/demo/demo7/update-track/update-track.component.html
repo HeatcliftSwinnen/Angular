@@ -1,10 +1,8 @@
-<h2>Ajout d'un nouveau son :</h2>
+<h2>Modification de la track numéro {{ trackId }} </h2>
 <div class="chapter">
-    <div class="mb-2">
-        <a routerLink="/demo/demo7">Revenir à la liste des sons</a>
-    </div>
+    <a routerLink="/demo/demo7">Revenir à la liste des sons</a>
 
-    <form [formGroup]="trackForm" (submit)="addTrack()">
+    <form [formGroup]="trackForm" (submit)="updateTrack()">
         <div>
             <input type="text" placeholder="Titre de la chanson" formControlName="title">
             <span *ngIf="trackForm.get('title')?.touched && trackForm.get('title')?.errors?.['required']" class="error">Ce champs est requis</span>
@@ -42,7 +40,7 @@
 
 
         <div>
-            <input class="btn" type="submit" value="Ajouter la chanson">
+            <input class="btn" type="submit" value="Modifier la chanson">
         </div>
     </form>
 </div>

@@ -8,6 +8,7 @@ import { Demo5Component } from './demo5/demo5.component';
 import { Demo6Component } from './demo6/demo6.component';
 import { Demo7Component } from './demo7/demo7.component';
 import { CreateTrackComponent } from './demo7/create-track/create-track.component';
+import { UpdateTrackComponent } from './demo7/update-track/update-track.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path : "demo5", component : Demo5Component},
   { path : "demo6", component : Demo6Component},
   { path : "demo7", component : Demo7Component},
-  { path : "demo7/create-track" , component : CreateTrackComponent}
+  { path : "demo7/create-track" , component : CreateTrackComponent},
+  { path : "demo7/update-track/:id", component : UpdateTrackComponent}
 
 ];
 

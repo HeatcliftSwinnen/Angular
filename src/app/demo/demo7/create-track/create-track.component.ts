@@ -28,9 +28,11 @@ export class CreateTrackComponent {
     return this.trackForm.get('artists') as FormArray;
   }
   
+  //Pour ajouter un input Artist
   addArtist() : void {
     this.artists.push(this._fb.control(null, Validators.required))
   }
+  //Pour dégager un input Artist
   removeArtist(i : number) : void {
     this.artists.removeAt(i);
   }

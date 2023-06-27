@@ -8,7 +8,8 @@ export class TrackService {
 
   private _trackList : Track[] = [
     { id : 1, title : 'Broken Smile', duration : 280, album : 'Come Over When You\'re Sober', genre : 'Musique de dépressif', artists : ['Lil Peep']},
-    { id : 2, title : 'Me faire la belle', duration : 213, album : 'Bohemian Rap Story', genre : 'Rap', artists : ['Dooz Kawa']}
+    { id : 2, title : 'Me faire la belle', duration : 213, album : 'Bohemian Rap Story', genre : 'Rap', artists : ['Dooz Kawa']},
+    { id : 3, title : 'Falling Down', duration : 300, album : 'Come Over When You\'re Sober', genre : 'Musique de dépressif', artists : ['Lil Peep', 'XXXTENTACION']}
   ]
 
   constructor() { }
@@ -28,9 +29,17 @@ export class TrackService {
   
   update(id : number, trackUpdated : Track) : void {
     let found : Track|undefined = this._trackList.find(t => t.id === id)
+    // if(found) {
+    //   found.title = trackUpdated.title;
+    //   found.duration = trackUpdated.duration;
+    //   found.genre = trackUpdated.genre;
+    //   found.album = trackUpdated.album;
+    //   found.artists = trackUpdated.artists;
+    // }
     if(found) {
-      found = {...trackUpdated};
+      Object.assign(found, trackUpdated);
     }
+    
   }
 
   delete(id : number) {
