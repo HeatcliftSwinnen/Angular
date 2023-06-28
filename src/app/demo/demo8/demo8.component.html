@@ -26,15 +26,22 @@
             <option value="BE">Belgique</option>
             <option value="US">Etats-Unis</option>
         </select>
-        <button class="btn">Prédire genre</button>
+        <button (click)="predireGenre()" class="btn">Prédire genre</button>
         <div *ngIf="genre">
-            Vous avez {{genre.probability * 100}}% de chances d'être {{ genre.gender === 'male' ? 'Un homme' : 'Une femme' }} pour le code pays {{genre.country_id}}. Basé sur {{genre.count}} résultats.
+            Vous avez {{genre.probability * 100}}% de chances d'être {{ genre.gender === 'male' ? 'un homme' : 'une femme' }} pour le code pays {{genre.country_id}}. Basé sur {{genre.count}} résultats.
         </div>
     </div>
 
     <div>
         <h3>Prédire nationalités</h3>
-        <input type="text" placeholder="Nom">
-        <button class="btn">Prédire nationalités</button>
+        <input type="text" placeholder="Nom" [(ngModel)]="nameNationality">
+        <button (click)="predireNationalite()" class="btn">Prédire nationalités</button>
+        <div>
+            <ul *ngIf="natio">
+                <li *ngFor="let country of natio.country">
+                   Vous avez {{country.probability * 100 }} % de chance d'être {{ getCountryName(country.country_id) }}
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
