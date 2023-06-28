@@ -39,7 +39,7 @@
         <div>
             <ul *ngIf="natio">
                 <li *ngFor="let country of natio.country">
-                   Vous avez {{country.probability * 100 }} % de chance d'être {{ getCountryName(country.country_id) }}
+                   Vous avez {{country.probability * 100 }} % de chance de venir de {{ getCountryName(country.country_id) }}
                 </li>
             </ul>
         </div>
