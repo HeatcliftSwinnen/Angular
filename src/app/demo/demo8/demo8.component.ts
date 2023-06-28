@@ -34,14 +34,46 @@ export class Demo8Component {
         error : ( err ) => {
           // Déclenché si la requête produit une erreur
           console.log(err);
-          
+
         },
         complete : () => {
           // Se déclenche à la fin de l'Observable
           // Ici, la durée de vie de notre observable = le temps de la requête
           console.log('Finiiii');
-          
+
         }
+      })
+    }
+  }
+
+  predireGenre():void{
+    if(this.nameGenre.trim()!=='' && this.countryCodeGenre!=''){
+      this._nameInfoService.getGender(this.nameGenre,this.countryCodeGenre).subscribe({
+        next:(GenreInfo)=>{
+          this.genre=GenreInfo
+        },
+        error:(err)=>{
+          console.log(err);
+
+        },
+        complete() {
+          console.log("fini");
+        },
+      })
+    }
+  }
+  predireNationality():void{
+    if(this.nameNationality.trim()!==''){
+      this._nameInfoService.getNationality(this.nameNationality).subscribe({
+        next:(NationalityInfo)=>{
+          this.natio=NationalityInfo
+        },
+        error:(err)=>{
+          console.log(err);
+        },
+        complete() {
+          console.log("fini");
+        },
       })
     }
   }

@@ -14,6 +14,7 @@ import { Exo5Component } from './exo5/exo5.component';
 import { CreateFanComponent } from './exo5/create-fan/create-fan.component';
 import { DetailFanComponent } from './exo5/detail-fan/detail-fan.component';
 import { UpdateFanComponent } from './exo5/update-fan/update-fan.component';
+import { Exo6Component } from './exo6/exo6.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UpdateFanComponent } from './exo5/update-fan/update-fan.component';
     Exo5Component,
     CreateFanComponent,
     DetailFanComponent,
-    UpdateFanComponent
+    UpdateFanComponent,
+    Exo6Component
   ],
   imports: [
     CommonModule,

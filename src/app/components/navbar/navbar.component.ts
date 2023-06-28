@@ -30,11 +30,13 @@ export class NavbarComponent implements OnInit {
       { title : 'Exo 2 - Shopping List V1', url : '/exo/exo2'},
       { title : 'Exo 3 - Shopping List V2', url : '/exo/exo3'},
       { title : 'Exo 4 - P\'tit formulaire', url : '/exo/exo4'},
-      { title : 'Exo 5 - Crud Fan Séries', url : '/exo/exo5'}
+      { title : 'Exo 5 - Crud Fan Séries', url : '/exo/exo5'},
+      { title : 'Exo 6 - PokeApi', url : '/exo/exo6'},
+
     ], isVisible : false },
     { title : 'Rappels', url : '/rappels', isVisible : false }
   ]
-  
+
   constructor(private _fakeAuthService : FakeAuthService) {
 
   }
@@ -49,8 +51,8 @@ export class NavbarComponent implements OnInit {
         // Se déclenche quand notre Observable va changer de valeur
         console.log("NEXT déclenché dans NavBar : ", newUser);
         this.connectedUser = newUser;
-        
-      }     
+
+      }
     })
 
     // Si vous n'avez qu'une fonction fléchée dans le subscribe au lieu d'un objet, c'est d'office le next
