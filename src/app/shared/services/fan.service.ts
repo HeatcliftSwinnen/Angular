@@ -8,7 +8,7 @@ export class FanService {
 
   private _fanList: Fan[] = [
     { id: 1, name: "Bernard", birthdate: new Date(1952, 1, 23), series: ["Breaking Bad", "Columbo"] },
-    { id: 2, name: "Kévin", birthdate: new Date(1995, 5, 23), series: ["Peaky Blinders"] }
+    { id: 2, name: "Kevin", birthdate: new Date(1995, 5, 23), series: ["Peaky Blinders"] }
   ]
 
   constructor() { }
