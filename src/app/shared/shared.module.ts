@@ -6,6 +6,7 @@ import { ConvertTimePipe } from './pipes/convert-time.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { TrainerCardComponent } from '../components/trainer-card/trainer-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Module partagé qui va nous servir à déclarer des fonctionnalités qu'on voudra rendre disponibles pour toute l'app grâce à l'export
 
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule, //Vous permet d'utiliser ngModel pour le Two Way Binding
-    ReactiveFormsModule //Vous permet d'utiliser les Reactive Form (FormGroup, FormControl etc)
+    ReactiveFormsModule, //Vous permet d'utiliser les Reactive Form (FormGroup, FormControl etc)
+    HttpClientModule
   ],
   exports : [
     ToFarenheitPipe,
@@ -29,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HighlightDirective,
     TrainerCardComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

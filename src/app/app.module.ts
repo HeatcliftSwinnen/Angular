@@ -7,9 +7,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { RappelsComponent } from './components/rappels/rappels.component';
-import { ToFarenheitPipe } from './shared/pipes/to-farenheit.pipe';
-import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localeFrBe);
 
@@ -25,7 +24,8 @@ registerLocaleData(localeFrBe);
   imports: [
     // Import des modules dont on va avoir besoin
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   exports : [
     // Modules, Components, Pipes etc qu'on veut rendre exportables dans l'app

@@ -10,18 +10,20 @@ import { Demo7Component } from './demo7/demo7.component';
 import { CreateTrackComponent } from './demo7/create-track/create-track.component';
 import { UpdateTrackComponent } from './demo7/update-track/update-track.component';
 import { connectedGuard } from '../shared/guards/connected.guard';
+import { Demo8Component } from './demo8/demo8.component';
 
 
 const routes: Routes = [
   { path : "demo1", component : Demo1Component },
   { path : "demo2", component : Demo2Component },
   { path : "demo3" , component : Demo3Component },
-  { path : "demo4", component : Demo4Component},
-  { path : "demo5", component : Demo5Component},
-  { path : "demo6", component : Demo6Component, canActivate : [connectedGuard]},
-  { path : "demo7", component : Demo7Component},
-  { path : "demo7/create-track" , component : CreateTrackComponent},
-  { path : "demo7/update-track/:id", component : UpdateTrackComponent}
+  { path : "demo4", component : Demo4Component },
+  { path : "demo5", component : Demo5Component },
+  { path : "demo6", component : Demo6Component, canActivate : [connectedGuard] },
+  { path : "demo7", component : Demo7Component },
+  { path : "demo7/create-track" , component : CreateTrackComponent },
+  { path : "demo7/update-track/:id", component : UpdateTrackComponent },
+  { path : "demo8", component : Demo8Component }
 
 ];
 

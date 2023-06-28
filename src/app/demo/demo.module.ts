@@ -14,6 +14,7 @@ import { Demo6Component } from './demo6/demo6.component';
 import { Demo7Component } from './demo7/demo7.component';
 import { CreateTrackComponent } from './demo7/create-track/create-track.component';
 import { UpdateTrackComponent } from './demo7/update-track/update-track.component';
+import { Demo8Component } from './demo8/demo8.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { UpdateTrackComponent } from './demo7/update-track/update-track.componen
     Demo7Component,
     CreateTrackComponent,
     UpdateTrackComponent,
+    Demo8Component,
   ],
   imports: [
     CommonModule,

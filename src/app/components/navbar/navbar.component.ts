@@ -21,7 +21,8 @@ export class NavbarComponent implements OnInit {
       { title : 'Demo 4 - Input & Output', url : '/demo/demo4'},
       { title : 'Demo 5 - Services', url : '/demo/demo5'},
       { title : 'Demo 6 - Les Formulaires', url : '/demo/demo6'},
-      { title : 'Demo 7 - Routing (Presque Full Crud)', url : '/demo/demo7'}
+      { title : 'Demo 7 - Routing (Presque Full Crud)', url : '/demo/demo7'},
+      { title : 'Demo 8 - HttpClient (Requêtes API)', url : '/demo/demo8'}
 
     ], isVisible : false },
     { title : 'Exos', /* url : '/exo',*/ children : [
