@@ -1,0 +1,16 @@
+<button (click)="previousPage()" >Précédent</button>
+
+<!-- Affichage des Pokémon -->
+<div *ngIf="pokemonList">
+  <div *ngFor="let pokemon of pokemonList">
+    <p>{{ pokemon.name }}</p>
+  </div>
+</div>
+
+<!-- Bouton pour afficher les Pokémon suivants -->
+<button (click)="nextPage()">Suivant</button>
+
+<div>
+  <input type="text" [(ngModel)]="name" placeholder="Nom du Pokémon">
+  <button (click)="getPokemonDetails()">Obtenir les détails du Pokémon</button>
+</div>

@@ -8,13 +8,16 @@ import { PokemonInfo } from '../models/pokemonInfo';
 })
 export class PokeInfoService {
 
-  private _urlName : string = "https://pokeapi.co"
-
+  private _urlBase: string = "https://pokeapi.co/api/v2/pokemon";
 
   constructor(private _httpClient: HttpClient) { }
 
+  getName(name: string): Observable<PokemonInfo> {
+    return this._httpClient.get<PokemonInfo>(`${this._urlBase}/${name.toLowerCase()}`);
+  }
 
-  getName(name:string):Observable<PokemonInfo>{
-    return this._httpClient.get<PokemonInfo>(this._urlName+`?name=${name}`)
+  getPokemonList(offset: number = 0, limit: number = 20): Observable<any> {
+    const url = `${this._urlBase}?offset=${offset}&limit=${limit}`;
+    return this._httpClient.get<any>(url);
   }
 }
