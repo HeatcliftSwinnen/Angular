@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CountryCode } from 'src/app/shared/models/countriesCodeEnum';
 import { AgeInfo, GenreInfo, NationalityInfo } from 'src/app/shared/models/nameInfo';
 import { NameInfoService } from 'src/app/shared/services/name-info.service';
 
@@ -20,7 +21,9 @@ export class Demo8Component {
   genre! : GenreInfo;
   natio! : NationalityInfo;
 
-  constructor(private _nameInfoService : NameInfoService) {}
+
+  constructor(private _nameInfoService : NameInfoService) {
+  }
 
   predireAge() : void {
     //Si les deux input ne sont pas vides
@@ -42,38 +45,6 @@ export class Demo8Component {
           console.log('Finiiii');
 
         }
-      })
-    }
-  }
-
-  predireGenre():void{
-    if(this.nameGenre.trim()!=='' && this.countryCodeGenre!=''){
-      this._nameInfoService.getGender(this.nameGenre,this.countryCodeGenre).subscribe({
-        next:(GenreInfo)=>{
-          this.genre=GenreInfo
-        },
-        error:(err)=>{
-          console.log(err);
-
-        },
-        complete() {
-          console.log("fini");
-        },
-      })
-    }
-  }
-  predireNationality():void{
-    if(this.nameNationality.trim()!==''){
-      this._nameInfoService.getNationality(this.nameNationality).subscribe({
-        next:(NationalityInfo)=>{
-          this.natio=NationalityInfo
-        },
-        error:(err)=>{
-          console.log(err);
-        },
-        complete() {
-          console.log("fini");
-        },
       })
     }
   }

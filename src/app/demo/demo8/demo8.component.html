@@ -28,12 +28,13 @@
         </select>
         <button (click)="predireGenre()" class="btn">Prédire genre</button>
         <div *ngIf="genre">
-            Vous avez {{genre.probability * 100}}% de chances d'être {{ genre.gender === 'male' ? 'Un homme' : 'Une femme' }} pour le code pays {{genre.country_id}}. Basé sur {{genre.count}} résultats.
+            Vous avez {{genre.probability * 100}}% de chances d'être {{ genre.gender === 'male' ? 'un homme' : 'une femme' }} pour le code pays {{genre.country_id}}. Basé sur {{genre.count}} résultats.
         </div>
     </div>
 
     <div>
         <h3>Prédire nationalités</h3>
+<<<<<<< HEAD
         <input [(ngModel)]="nameNationality" type="text" placeholder="Nom">
         <button (click)="predireNationality()" class="btn">Prédire nationalités</button>
         <div *ngIf="natio">
@@ -43,5 +44,16 @@
           </div>
 
       </div>
+=======
+        <input type="text" placeholder="Nom" [(ngModel)]="nameNationality">
+        <button (click)="predireNationalite()" class="btn">Prédire nationalités</button>
+        <div>
+            <ul *ngIf="natio">
+                <li *ngFor="let country of natio.country">
+                   Vous avez {{country.probability * 100 }} % de chance de venir de {{ getCountryName(country.country_id) }}
+                </li>
+            </ul>
+        </div>
+>>>>>>> e91deab47e862a61caacccec07d5d3bf57f006fb
     </div>
 </div>
