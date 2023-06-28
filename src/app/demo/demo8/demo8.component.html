@@ -33,27 +33,15 @@
     </div>
 
     <div>
-        <h3>Prédire nationalités</h3>
-<<<<<<< HEAD
-        <input [(ngModel)]="nameNationality" type="text" placeholder="Nom">
-        <button (click)="predireNationality()" class="btn">Prédire nationalités</button>
-        <div *ngIf="natio">
-          Pour le prénom "{{natio.name}}"
-          <div *ngFor="let country of natio.country">
-          Vous avez {{(country.probability*100).toFixed(1)}}% de chances de venir du pays {{country.country_id}}.
-          </div>
-
+      <h3>Prédire nationalités</h3>
+      <input type="text" placeholder="Nom" [(ngModel)]="nameNationality">
+      <button (click)="predireNationalite()" class="btn">Prédire nationalités</button>
+      <div>
+          <ul *ngIf="natio">
+              <li *ngFor="let country of natio.country">
+                 Vous avez {{country.probability * 100 }} % de chance de venir de {{ getCountryName(country.country_id) }}
+              </li>
+          </ul>
       </div>
-=======
-        <input type="text" placeholder="Nom" [(ngModel)]="nameNationality">
-        <button (click)="predireNationalite()" class="btn">Prédire nationalités</button>
-        <div>
-            <ul *ngIf="natio">
-                <li *ngFor="let country of natio.country">
-                   Vous avez {{country.probability * 100 }} % de chance de venir de {{ getCountryName(country.country_id) }}
-                </li>
-            </ul>
-        </div>
->>>>>>> e91deab47e862a61caacccec07d5d3bf57f006fb
-    </div>
+  </div>
 </div>

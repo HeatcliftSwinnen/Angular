@@ -48,4 +48,34 @@ export class Demo8Component {
       })
     }
   }
+
+
+  predireGenre() : void {
+    if(this.nameGenre.trim() != '' && this.countryCodeGenre != '') {
+
+      this._nameInfoService.getGender(this.nameGenre, this.countryCodeGenre).subscribe({
+        next : (genreInfo) => {
+          this.genre = genreInfo;
+        }
+      });
+
+    }
+  }
+
+  predireNationalite() : void {
+    if(this.nameNationality.trim() != ''){
+      this._nameInfoService.getNationality(this.nameNationality).subscribe({
+        next : (nationality) => {
+          this.natio = nationality;
+        }
+      })
+    }
+  }
+
+
+  getCountryName(codeCountry : string) {
+    //@ts-ignore
+    return CountryCode[codeCountry];
+  }
+
 }
