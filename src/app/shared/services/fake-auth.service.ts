@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { Observable, Subject, last } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, last } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,14 @@ export class FakeAuthService {
 
   // Avec observable
   // On le passe en privé, pour l'utiliser que dans la service et ne pouvoir emettre de nouvelle valeur qu'ici
-  private _$connectedUser : Subject<User | undefined> = new Subject<User | undefined>();
+  //private _$connectedUser : Subject<User | undefined> = new Subject<User | undefined>();
+
+  // Deuxième type d'observable :
+  // Différence entre Subject et Behavior :
+  // Le Behavior va déclencher un premier next au subscribe et se remplir avec la valeur renseignée à son initialisation
+  private _$connectedUser : BehaviorSubject<User | undefined> = new BehaviorSubject<User | undefined>(this._users.find(u => u.id === parseInt(localStorage.getItem('userId') ?? "-1")));
+
+
   // La variable qu'on rend public pour nos composants sera notre Subject mais transformé en observable
   $connectedUser : Observable<User | undefined> = this._$connectedUser.asObservable();
 
@@ -36,6 +43,9 @@ export class FakeAuthService {
 
         // Après, avec observable
         this._$connectedUser.next(userToFind);
+
+        // Ajout de son id dans le localStorage
+        localStorage.setItem('userId', userToFind.id.toString());
         
       }
       else {
@@ -61,5 +71,8 @@ export class FakeAuthService {
 
     // Après
     this._$connectedUser.next(undefined);
+
+    // Enlever l'id dans le localStorage
+    localStorage.removeItem('userId');
   }
 }
