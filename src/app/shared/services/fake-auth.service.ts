@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { last } from 'rxjs';
+import { Observable, Subject, last } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,15 @@ export class FakeAuthService {
     { id : 2, lastname : 'Bya', firstname : 'Seb', pseudo : 'sbya', email : 'sebastien.bya@bstorm.be', password : 'Seb1234='}
   ]
 
-  connectedUser : User | undefined;
+  // Avant observable
+  // connectedUser : User | undefined;
+
+  // Avec observable
+  // On le passe en privé, pour l'utiliser que dans la service et ne pouvoir emettre de nouvelle valeur qu'ici
+  private _$connectedUser : Subject<User | undefined> = new Subject<User | undefined>();
+  // La variable qu'on rend public pour nos composants sera notre Subject mais transformé en observable
+  $connectedUser : Observable<User | undefined> = this._$connectedUser.asObservable();
+
 
   constructor() { }
 
@@ -23,18 +31,35 @@ export class FakeAuthService {
     //Si on a trouvé un user qui correspond, on check son pwd
     if(userToFind) {
       if(userToFind.password === pwd) {
-        this.connectedUser = userToFind;
+        // Avant, sans observable
+        // this.connectedUser = userToFind;
+
+        // Après, avec observable
+        this._$connectedUser.next(userToFind);
+        
       }
       else {
-        this.connectedUser = undefined;
+        // Avant, sans observable
+        // this.connectedUser = undefined;
+
+        // Après,
+        this._$connectedUser.next(undefined);
       }
     }
     else {
-      this.connectedUser = userToFind; //undefined
+      //Avant
+      // this.connectedUser = userToFind; //undefined
+      
+      //Après
+      this._$connectedUser.next(userToFind);
     }
   }
 
   logout() : void {
-    this.connectedUser = undefined;
+    // Avant Obs
+    // this.connectedUser = undefined;
+
+    // Après
+    this._$connectedUser.next(undefined);
   }
 }

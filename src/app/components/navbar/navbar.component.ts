@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Link } from 'src/app/shared/models/link';
+import { User } from 'src/app/shared/models/user';
+import { FakeAuthService } from 'src/app/shared/services/fake-auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  connectedUser : User | undefined;
+
+
   navLinks : Link[] = [
     { title : 'Accueil', url : '/', isVisible : false },
     { title : 'Demos', /* url : '/demo', */ children : [
@@ -29,7 +34,32 @@ export class NavbarComponent {
     { title : 'Rappels', url : '/rappels', isVisible : false }
   ]
   
-  
+  constructor(private _fakeAuthService : FakeAuthService) {
+
+  }
+
+  ngOnInit(): void {
+    // Avant observable
+    //  this.connectedUser = this._fakeAuthService.connectedUser;
+
+    // Après, avec Obs
+    this._fakeAuthService.$connectedUser.subscribe({
+      next : (newUser : User | undefined ) => {
+        // Se déclenche quand notre Observable va changer de valeur
+        console.log("NEXT déclenché dans NavBar : ", newUser);
+        this.connectedUser = newUser;
+        
+      }     
+    })
+
+    // Si vous n'avez qu'une fonction fléchée dans le subscribe au lieu d'un objet, c'est d'office le next
+    // this._fakeAuthService.$connectedUser.subscribe( (newUser) => {} )
+  }
+
+  disconnect() {
+    this._fakeAuthService.logout();
+  }
+
   toggleVisible(link : Link) : void {
     // On stock l'état de isVisible du lien sur lequel on vient de cliquer
     let currentState = link.isVisible;

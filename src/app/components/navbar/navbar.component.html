@@ -35,5 +35,15 @@
                 </ul>
             </li>
         </ul>
+
+        <div>
+            <p *ngIf="!connectedUser">Bienvenue</p>
+
+            <p *ngIf="connectedUser">Bonjour {{connectedUser.firstname}}</p>
+
+            <a *ngIf="!connectedUser" class="btn" routerLink="/demo/demo5">Se connecter</a>
+            
+            <button class="btn" (click)="disconnect()" *ngIf="connectedUser">Se déconnecter</button>
+        </div>
     </nav>
 </header>
