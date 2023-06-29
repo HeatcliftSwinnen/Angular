@@ -1,16 +1,57 @@
-<button (click)="previousPage()" >Précédent</button>
+<div class="pkd-border">
+  <div class="pkd-render">
+    <div *ngIf="selectedPokemon" class="left-side">
+      <div class="pkm-name">
+        <p>{{selectedPokemon.name}}</p>
+      </div>
+      <div class="pkm-img">
+        <img class="img-pokemon" [src]="selectedPokemon.sprites.front_default" alt="">
+        <img class="img-pokemon" [src]="selectedPokemon.sprites.back_default" alt="">
 
-<!-- Affichage des Pokémon -->
-<div *ngIf="pokemonList">
-  <div *ngFor="let pokemon of pokemonList">
-    <p>{{ pokemon.name }}</p>
+      </div>
+      <div class="pkm-description">
+        <p>{{selectedPokemon.description}}</p>
+      </div>
+      <div class="pkm-caract">
+        <p>ID : {{selectedPokemon.id}}</p>
+        <p>Poids : {{selectedPokemon.weight/10}} kg</p>
+        <p>Taille : {{selectedPokemon.height*10}} cm</p>
+      </div>
+    </div>
+    <div *ngIf="!selectedPokemon" class="left-side">
+      <div class="pkm-name">
+        <p>Nom Du Pokémon</p>
+      </div>
+      <div class="pkm-img">
+        <img class="pokeball" src="https://media.giphy.com/media/Sd9XrDFZZ0Q0OXAdJM/giphy.gif" alt="">
+      </div>
+      <div class="pkm-description">
+        <p></p>
+      </div>
+      <div class="pkm-caract">
+        <p>N° XXX</p>
+        <p>Poids : X kg</p>
+        <p>Taille : X cm</p>
+      </div>
+    </div>
+    <div class="right-side">
+      <div *ngIf="pokemonList" class="pkm-list">
+        <ul>
+          <li *ngFor="let pokemon of pokemonList.results">
+            <a (click)=selectPokemon(pokemon.url)>{{ pokemon.name }}</a>
+          </li>
+        </ul>
+        <div class="boutton">
+          <button (click)="previousPage()" [disabled]="!pokemonList.previous">⏫</button>
+          <button (click)="nextPage()" [disabled]="!pokemonList.next">⏬</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Bouton pour afficher les Pokémon suivants -->
-<button (click)="nextPage()">Suivant</button>
 
-<div>
-  <input type="text" [(ngModel)]="name" placeholder="Nom du Pokémon">
-  <button (click)="getPokemonDetails()">Obtenir les détails du Pokémon</button>
-</div>
+
+
+
+

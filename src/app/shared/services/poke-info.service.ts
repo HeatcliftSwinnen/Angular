@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PokemonInfo } from '../models/pokemonInfo';
+import { PokemonDetails, PokemonInfo } from '../models/pokemonInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,15 @@ export class PokeInfoService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getName(name: string): Observable<PokemonInfo> {
-    return this._httpClient.get<PokemonInfo>(`${this._urlBase}/${name.toLowerCase()}`);
+
+  getPokemonList(url? : string): Observable<PokemonInfo> {
+    if(url){
+      return this._httpClient.get<PokemonInfo>(url);
+    }
+    return this._httpClient.get<PokemonInfo>(this._urlBase);
   }
 
-  getPokemonList(offset: number = 0, limit: number = 20): Observable<any> {
-    const url = `${this._urlBase}?offset=${offset}&limit=${limit}`;
-    return this._httpClient.get<any>(url);
+  getPokemonDetails(url: string): Observable<PokemonDetails> {
+    return this._httpClient.get<PokemonDetails>(url);
   }
 }

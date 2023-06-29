@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonInfo } from 'src/app/shared/models/pokemonInfo';
+import { Pokemon, PokemonDetails, PokemonInfo } from 'src/app/shared/models/pokemonInfo';
 import { PokeInfoService } from 'src/app/shared/services/poke-info.service';
 
 @Component({
@@ -8,10 +8,9 @@ import { PokeInfoService } from 'src/app/shared/services/poke-info.service';
   styleUrls: ['./exo6.component.scss']
 })
 export class Exo6Component implements OnInit {
-  name: string = "";
-  pokemonList: PokemonInfo[] = [];
-  currentPage: number = 0;
-  pageSize: number = 20;
+
+  pokemonList: PokemonInfo = { next: '', previous: '', results: [] };
+  selectedPokemon!: PokemonDetails
 
   constructor(private _pokeInfoService: PokeInfoService) { }
 
@@ -20,47 +19,26 @@ export class Exo6Component implements OnInit {
   }
 
   previousPage(): void {
-    if (!this.isFirstPage()) {
-      this.currentPage--;
-      this.loadPokemonPage();
+    if (this.pokemonList.previous !== null) {
+      this._pokeInfoService.getPokemonList(this.pokemonList.previous).subscribe(value => this.pokemonList = value)
     }
   }
 
   nextPage(): void {
-    if (!this.isLastPage()) {
-      this.currentPage++;
-    } else {
-      this.currentPage = 0; // Revenir à la première page
+    if (this.pokemonList.next !== null) {
+      this._pokeInfoService.getPokemonList(this.pokemonList.next).subscribe(value => this.pokemonList = value)
     }
-    this.loadPokemonPage();
   }
-
-  isFirstPage(): boolean {
-    return this.currentPage === 0;
-  }
-
-  isLastPage(): boolean {
-    const totalPokemonCount = this.pokemonList.length;
-    const lastPage = Math.floor(totalPokemonCount / this.pageSize);
-    return this.currentPage === lastPage;
-  }
-
   loadPokemonPage(): void {
-    const offset = this.currentPage * this.pageSize;
-    this._pokeInfoService.getPokemonList(offset, this.pageSize).subscribe(
-      (response: any) => {
-        this.pokemonList = response.results;
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+    this._pokeInfoService.getPokemonList().subscribe(value => this.pokemonList = value);
   }
 
-  getPokemonDetails() {
-    this._pokeInfoService.getName(this.name)
-      .subscribe((pokemonInfo: PokemonInfo) => {
-        console.log(pokemonInfo);
-      });
+  selectPokemon(url: string): void {
+    this._pokeInfoService.getPokemonDetails(url).subscribe({
+      next: (value: PokemonDetails) => {
+        this.selectedPokemon = value;
+      }
+
+    });
   }
 }
