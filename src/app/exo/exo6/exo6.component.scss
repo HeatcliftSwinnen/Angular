@@ -11,6 +11,34 @@
 }
 
 .pkm-name {
+  background-image: linear-gradient(
+    90deg,
+    hsl(0deg 100% 51%) 0%,
+    hsl(0deg 100% 59%) 4%,
+    hsl(0deg 100% 67%) 8%,
+    hsl(0deg 100% 75%) 13%,
+    hsl(0deg 100% 84%) 17%,
+    hsl(0deg 100% 92%) 21%,
+    hsl(0deg 0% 100%) 25%,
+    hsl(0deg 0% 100%) 29%,
+    hsl(0deg 0% 100%) 33%,
+    hsl(0deg 0% 100%) 37%,
+    hsl(0deg 0% 100%) 42%,
+    hsl(0deg 0% 100%) 46%,
+    hsl(0deg 0% 100%) 50%,
+    hsl(0deg 0% 100%) 54%,
+    hsl(0deg 0% 100%) 58%,
+    hsl(0deg 0% 100%) 63%,
+    hsl(0deg 0% 100%) 67%,
+    hsl(0deg 0% 100%) 71%,
+    hsl(0deg 0% 100%) 75%,
+    hsl(0deg 100% 92%) 79%,
+    hsl(0deg 100% 83%) 83%,
+    hsl(0deg 100% 75%) 87%,
+    hsl(0deg 100% 67%) 92%,
+    hsl(0deg 100% 58%) 96%,
+    hsl(0deg 100% 50%) 100%
+  );
   border: 4px solid black;
   margin: 1.2rem;
   border-radius: 20px;
@@ -39,6 +67,34 @@
 }
 
 .pkm-caract {
+  background-image: linear-gradient(
+    90deg,
+    hsl(0deg 100% 51%) 0%,
+    hsl(0deg 100% 59%) 4%,
+    hsl(0deg 100% 67%) 8%,
+    hsl(0deg 100% 75%) 13%,
+    hsl(0deg 100% 84%) 17%,
+    hsl(0deg 100% 92%) 21%,
+    hsl(0deg 0% 100%) 25%,
+    hsl(0deg 0% 100%) 29%,
+    hsl(0deg 0% 100%) 33%,
+    hsl(0deg 0% 100%) 37%,
+    hsl(0deg 0% 100%) 42%,
+    hsl(0deg 0% 100%) 46%,
+    hsl(0deg 0% 100%) 50%,
+    hsl(0deg 0% 100%) 54%,
+    hsl(0deg 0% 100%) 58%,
+    hsl(0deg 0% 100%) 63%,
+    hsl(0deg 0% 100%) 67%,
+    hsl(0deg 0% 100%) 71%,
+    hsl(0deg 0% 100%) 75%,
+    hsl(0deg 100% 92%) 79%,
+    hsl(0deg 100% 83%) 83%,
+    hsl(0deg 100% 75%) 87%,
+    hsl(0deg 100% 67%) 92%,
+    hsl(0deg 100% 58%) 96%,
+    hsl(0deg 100% 50%) 100%
+  );
   margin: 1.2rem;
   border: 4px solid black;
   border-radius: 20px;
@@ -67,6 +123,7 @@
 }
 
 .pkm-list {
+
   margin : 5px;
   padding: 15%;
   width: 70%;
@@ -93,6 +150,7 @@
 }
 
 a {
+  font-weight: bold;
   color: inherit;
   text-decoration: none;
   font-size: large;
